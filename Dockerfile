@@ -1,6 +1,6 @@
 FROM python:3.11
 WORKDIR /retry-web-service
-#COPY ./crawling /retry-web-service/crawling
+COPY ./crawling /retry-web-service/crawling
 COPY ./musinsa_trend /retry-web-service/musinsa_trend
 COPY ./requirements.txt /retry-web-service
 COPY ./logger.py /retry-web-service
