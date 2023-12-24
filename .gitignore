@@ -1,0 +1,13 @@
+# Default ignored files
+.idea
+app.log
+venv
+data
+mysite/**/__pycache__
+mysite/**/migrations/__pycache__
+
+# personal ignored files
+Pipfile
+Pipfile.lock
+web-full-stack/plot/__pycache__
+*.pyc
