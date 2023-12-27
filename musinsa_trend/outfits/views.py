@@ -1,6 +1,6 @@
 from django.shortcuts import render
 # from django.http import JsonResponse
-# from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from django.db.models import Count
 from .models import Style, StyleGoods, Goods
@@ -21,15 +21,17 @@ def index(request):
     return render(request, 'index.html')
 
 
-# @api_view(['GET'])
+@api_view(['GET'])
 def chart(request):
+    # chart_type = request.GET.get('chart_type', 2)
     category = request.GET.get('category', '스포티')
     return Response({'filename_img': visualize(category)})
 
 
 def visualize(category):
     plot, utils = Plot(), Utils()
-    return plot.pie(utils.get_data_for_pie(category, category_brand_count()))
+    return plot.draw_pie_chart(utils.get_data_for_pie(category, category_brand_count()))
+    # return plot.pie(utils.get_sample_pie())  #get_data_for_pie
 
 
 def category_brand_count():
@@ -46,6 +48,7 @@ def category_brand_count():
             'category': category_name,
             'brand_counts': list(brand_count)
         })
+    logger.info(f'Brand-Count: {category_count_data}')
 
     return {
         'category_brand_counts': category_count_data

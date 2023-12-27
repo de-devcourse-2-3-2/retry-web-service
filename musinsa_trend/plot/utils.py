@@ -1,3 +1,6 @@
+import logging
+
+
 class Utils:
     ALL_CATEGORIES = ("아메카지", "캐주얼", "시크", "댄디", "비즈니스캐주얼", "걸리시", "골프", "레트로", "로맨틱", "스포티", "스트릿", "고프코어", "홈웨어", "아동복")
 
@@ -19,6 +22,8 @@ class Utils:
                 # Append others
                 brands.append("Others")
                 totals.append(others_total)
+                # logging.info(f"Brands: {brands}")
+                # logging.info(f"Total: {totals}")
                 return (brands, totals)
 
     # EXPECTED RAW DATA AS INPUT FROM category_brand_count()

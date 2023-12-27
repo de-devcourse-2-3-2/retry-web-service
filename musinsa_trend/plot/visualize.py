@@ -10,8 +10,8 @@ import matplotlib.font_manager
 from django.conf import settings
 
 matplotlib.use('Agg')  # 맥 OS 스레드 충돌 해결 설정
-# FONT_PATH = os.path.join(settings.STATIC_ROOT, 'fonts/NanumGothic.ttf')
-FONT_PATH = '/musinsa_trend/musinsa_trend/plot/static/resources/NanumGothic.ttf'
+# FONT_PATH = '/Users/wonkyungkim/Documents/pythondev/retry-web-service/musinsa_trend/plot/static/resources/NanumGothic.ttf'
+FONT_PATH = 'plot/static/resources/NanumGothic.ttf'
 FONT = font_manager.FontProperties(fname=FONT_PATH)
 FONT_FAMILY = FONT.get_name()
 font_manager.fontManager.addfont(FONT_PATH)
@@ -23,7 +23,7 @@ matplotlib.rcParams['font.family'] = FONT_FAMILY
 class Plot:  # init 메서드가 없는데 이걸 어케 써..? 여기에 () 이거 붙이면 스태틱으로만 쓸수있기라도 함?
     # Constants for managing files
     FILE_NAME_LINE = ''
-    FILE_NAME_PIE = ''
+    FILE_NAME_PIE = 'image02.png'
     FILE_NAME_STACKED_BAR = ''
     SAVE_DESTINATION = str(Path.cwd()) + '\\plot\\static\\media\\'
 
@@ -31,7 +31,7 @@ class Plot:  # init 메서드가 없는데 이걸 어케 써..? 여기에 () 이
     
     def font_setting(self, plt):
         # font_path = os.path.join(os.path.dirname(__file__), 'static', 'resources', 'NanumGothic.ttf')
-        font_path = 'plot/static/resources/NanumGothic.ttf'  # 여기서 경로를 .ttf 파일의 실제 경로로 바꿔주세요.
+        # font_path = 'plot/static/resources/NanumGothic.ttf'  # 여기서 경로를 .ttf 파일의 실제 경로로 바꿔주세요.
         
         # if os.path.exists(font_path):
         #     print(f"파일이 존재합니다: {font_path}")
@@ -89,7 +89,7 @@ class Plot:  # init 메서드가 없는데 이걸 어케 써..? 여기에 () 이
 
         return self.FILE_NAME_LINE
 
-    def pie(self, data):
+    def draw_pie_chart(self, data):
         brands, totals = data
         fig, ax = plt.subplots()
         ax.pie(totals, labels=brands)
