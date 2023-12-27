@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from django.http import JsonResponse
-from rest_framework.decorators import api_view
+# from django.http import JsonResponse
+# from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from django.db.models import Count
 from .models import Style, StyleGoods, Goods
@@ -16,12 +16,12 @@ setLogOptions()
 logger = logging.getLogger(__name__)
 
 
-@api_view(['GET'])
+# @api_view(['GET'])
 def index(request):
     return render(request, 'index.html')
 
 
-@api_view(['GET'])
+# @api_view(['GET'])
 def chart(request):
     category = request.GET.get('category', '스포티')
     return Response({'filename_img': visualize(category)})

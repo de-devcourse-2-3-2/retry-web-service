@@ -7,6 +7,15 @@ from .utils import Utils
 from datetime import datetime
 import os
 import matplotlib.font_manager
+from django.conf import settings
+
+matplotlib.use('Agg')  # 맥 OS 스레드 충돌 해결 설정
+# FONT_PATH = os.path.join(settings.STATIC_ROOT, 'fonts/NanumGothic.ttf')
+FONT_PATH = '/musinsa_trend/musinsa_trend/plot/static/resources/NanumGothic.ttf'
+FONT = font_manager.FontProperties(fname=FONT_PATH)
+FONT_FAMILY = FONT.get_name()
+font_manager.fontManager.addfont(FONT_PATH)
+matplotlib.rcParams['font.family'] = FONT_FAMILY
 
 # font_manager._rebuild()
 
