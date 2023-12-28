@@ -3,7 +3,7 @@ from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from django.db.models import Count
-from .models import Style, StyleGoods, Goods
+from .models import *
 import logging
 from logger import setLogOptions
 from django.db.models import Sum

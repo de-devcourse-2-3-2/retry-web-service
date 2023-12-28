@@ -16,6 +16,7 @@ class Style(models.Model):
 
     class Meta:
         db_table = 'style'
+        app_label = 'outfits'
 
 class Goods(models.Model):
     name = models.CharField(max_length=128, null=False)
@@ -28,6 +29,7 @@ class Goods(models.Model):
 
     class Meta:
         db_table = 'goods'
+        app_label = 'outfits'
 
 class StyleGoods(models.Model):
     style = models.ForeignKey(Style, on_delete=models.CASCADE)
@@ -38,4 +40,5 @@ class StyleGoods(models.Model):
 
     class Meta:
         db_table = 'style_goods'
+        app_label = 'outfits'
         # unique_together = (('style_id', 'goods_id'),)
