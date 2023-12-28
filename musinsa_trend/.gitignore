@@ -1,5 +1,5 @@
 # Default ignored files
-
+crawling/
 app.log
 venv
 mysite/**/__pycache__
